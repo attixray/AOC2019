@@ -12,8 +12,9 @@ fn main() -> std::io::Result<()> {
     for (_, line) in reader.lines().enumerate() {
         let mass = line.unwrap().parse::<u32>().unwrap();
         let mut fuel_for_mass = (mass / 3) as i32 - 2;
-        if fuel_for_mass > 0 {
+        while fuel_for_mass > 0 {
             sum += fuel_for_mass;
+            fuel_for_mass = (fuel_for_mass / 3) - 2;
         }
     }
 
